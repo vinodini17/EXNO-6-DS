@@ -18,36 +18,209 @@ STEP 4:Apply the various data visualization tools wherever necessary.
 STEP 5:Include Necessary parameters in each functions.
 
 # Coding and Output:
+Name : CHARUKESH S
 
-![image](https://github.com/user-attachments/assets/58462f3b-2ebf-4cee-81e2-52197b70858c)
-![image](https://github.com/user-attachments/assets/836f5b48-886c-42e4-8409-bfc71b399a33)
-![image](https://github.com/user-attachments/assets/9e5462e0-c925-44df-a646-0538853b1ef5)
-![image](https://github.com/user-attachments/assets/af6f1def-44c3-4a62-b3e6-c8bae03783af)
-![image](https://github.com/user-attachments/assets/c789ea3d-8f17-402c-b79e-a4018512dd69)
-![image](https://github.com/user-attachments/assets/1d4eb1cb-2be5-415c-9a98-23f42e98e57a)
-![image](https://github.com/user-attachments/assets/e2f74564-5886-4da6-847d-89d590702d1a)
-![image](https://github.com/user-attachments/assets/53208ddd-aae8-4b5f-a9db-d0c531eee3c5)
-![image](https://github.com/user-attachments/assets/9b7d2ab3-bcf3-4220-8a7c-d0ce8681449f)
-![image](https://github.com/user-attachments/assets/bb8bb949-507c-4a20-9fef-f6a6c56e3371)
-![image](https://github.com/user-attachments/assets/c1bfafd9-123b-4226-bc76-47d895ccfc0e)
-![image](https://github.com/user-attachments/assets/b6985c63-1daf-495d-bec3-d840309f6c8a)
-![image](https://github.com/user-attachments/assets/760223c8-0c2f-41b9-845e-e674278b8cca)
-![image](https://github.com/user-attachments/assets/0006242a-74e4-4bc8-aaad-95cf2e1932c8)
-![image](https://github.com/user-attachments/assets/b710994a-c970-4d47-9a3c-eeab200f0cda)
-![image](https://github.com/user-attachments/assets/b0436de7-3582-46d8-a0bd-cbbdc3315066)
-![image](https://github.com/user-attachments/assets/5a6be6ed-e4be-41e2-8812-43a9969c9f3e)
-![image](https://github.com/user-attachments/assets/c8c71bd2-8e4d-4218-8977-052cd7e9ccde)
-![image](https://github.com/user-attachments/assets/653dbe82-928d-420e-9772-363f6a9176be)
-![image](https://github.com/user-attachments/assets/5e0d4222-f326-4018-a9ea-5662c286eb95)
-![image](https://github.com/user-attachments/assets/e7991f61-d742-41b5-b439-d8f0dca70f13)
-![image](https://github.com/user-attachments/assets/8ce02706-0831-486d-b221-4b4ccf7034ac)
-![image](https://github.com/user-attachments/assets/72b9e974-04bf-4370-874e-5c03b4e8c23b)
-![image](https://github.com/user-attachments/assets/ec743b6c-13bb-46d9-8675-9d0c7fc4b490)
-![image](https://github.com/user-attachments/assets/fa6ceea1-bb9f-4947-a94d-d120e760dcde)
-![image](https://github.com/user-attachments/assets/998b9326-bf41-40ab-b41c-18f3c852d24c)
-![image](https://github.com/user-attachments/assets/f5182c54-51ae-4703-98a1-6c5f39ac44f7)
-
-
+Register Number : 212224230044
+ ```
+import seaborn as sns
+import matplotlib.pyplot as plt
+x=[1,2,3,4,5]
+y=[3,6,2,7,1]
+sns.lineplot(x=x,y=y)
+```
+![image](https://github.com/user-attachments/assets/46974ab5-7fc7-40fb-a9b2-1616f16727bc)
+```
+df=sns.load_dataset("tips")
+df
+```
+![image](https://github.com/user-attachments/assets/772058e7-b9c9-4946-af42-d4406deedba8)
+```
+sns.lineplot(x="total_bill",y="tip",data=df,hue="sex",linestyle='solid',legend="auto")
+```
+![image](https://github.com/user-attachments/assets/00076ba5-5f2a-4c33-9423-e06f766c1128)
+```
+x=[1,2,3,4,5]
+y1=[3,5,2,6,1]
+y2=[1,6,4,3,8]
+y3=[5,2,7,1,4]
+sns.lineplot(x=x,y=y1)
+sns.lineplot(x=x,y=y2)
+sns.lineplot(x=x,y=y3)
+plt.title('Multi-:Line Plot')
+plt.xlabel('X-Label')
+plt.ylabel('Y-Label')
+```
+![image](https://github.com/user-attachments/assets/3b9eb27a-c0b9-457f-a02f-8086f94e405f)
+```
+tips=sns.load_dataset('tips')
+avg_total_bill=tips.groupby('day')['total_bill'].mean()
+avg_tip=tips.groupby('day')['tip'].mean()
+plt.figure(figsize=(8,6))
+p1=plt.bar(avg_total_bill.index,avg_total_bill,label='Total Bill')
+p2=plt.bar(avg_tip.index,avg_tip,label='Tip')
+plt.xlabel('Day of the Week')
+plt.ylabel('Amount')
+plt.title('Average Total Bill and Tip by Day')
+plt.legend()
+```
+![image](https://github.com/user-attachments/assets/ba675234-156c-4f40-ba00-b91adbf8c295)
+```
+avg_total_bill=tips.groupby('time')['total_bill'].mean()
+avg_tip=tips.groupby('time')['tip'].mean()
+p1=plt.bar(avg_total_bill.index,avg_total_bill,label='Total Bill',width=0.4)
+p2=plt.bar(avg_tip.index,avg_tip,bottom=avg_total_bill,label='Tip',width=0.4)
+plt.xlabel('Time of Day')
+plt.ylabel('Amount')
+plt.title('Average Total Bill and Tip by Time of Day')
+plt.legend()
+```
+![image](https://github.com/user-attachments/assets/a8875910-e94e-4f61-9231-b3149c6b5c08)
+```
+years=range(2000,2012)
+apples=[0.895,0.91,0.919,0.926,0.929,0.931,0.934,0.936,0.937,0.9375,0.9372,0.939]
+oranges=[0.962,0.941,0.930,0.923,0.918,0.908,0.907,0.904,0.901,0.898,0.9,0.896]
+plt.bar(years,apples)
+plt.bar(years,oranges,bottom=apples)
+```
+![image](https://github.com/user-attachments/assets/a1202464-30c2-4c24-8684-f980c4dc569d)
+```
+import seaborn as sns
+dt=sns.load_dataset('tips')
+sns.barplot(x='day',y='total_bill',hue='sex',data=dt,palette='Set1')
+plt.xlabel('Day of the Week')
+plt.ylabel('Total Bill')
+plt.title('Total Bill by Day and Gender')
+```
+![image](https://github.com/user-attachments/assets/064c936b-69b7-4b04-9139-92e04b3c7ddb)
+```
+import pandas as pd
+tit=pd.read_csv("/content/titanic_dataset (2).csv")
+tit
+```
+![image](https://github.com/user-attachments/assets/75d93cfc-103e-4935-bb9b-529b7e02a18d)
+![image](https://github.com/user-attachments/assets/0f6680c0-650a-4cb6-b7a3-9228272f82de)
+```
+plt.figure(figsize=(8,5))
+sns.barplot(x='Embarked',y='Fare',data=tit,palette='rainbow')
+plt.title("Fare of Passenger by Embarked Town")
+```
+![image](https://github.com/user-attachments/assets/5aa1f428-1294-42a2-9696-3f54053a37ef)
+```
+plt.figure(figsize=(8,5))
+sns.barplot(x='Embarked',y='Fare',data=tit,palette='rainbow',hue='Pclass')
+plt.title("Fare of Passenger by Embarked Town,Divided by Class")
+```
+![image](https://github.com/user-attachments/assets/52cf845e-40a3-498e-ae6f-77defcd62af5)
+```
+tips=sns.load_dataset('tips')
+sns.scatterplot(x='total_bill',y='tip',hue='sex',data=tips)
+plt.xlabel('Total Bill')
+plt.ylabel('Tip Amount')
+plt.title('Scatter Plot of Total Bill vs. Tip Amount')
+```
+![image](https://github.com/user-attachments/assets/4512ff1c-abe3-4d2f-97b9-81c67965af87)
+```
+import seaborn as sns
+import numpy as np
+import pandas as pd
+np.random.seed(1)
+num_var=np.random.randn(1000)
+num_var=pd.Series(num_var,name="Numerical Variable")
+num_var
+```
+![image](https://github.com/user-attachments/assets/a288772d-c3c9-489a-b964-fcea264cf95e)
+```
+sns.histplot(data=num_var,kde=True)
+```
+![image](https://github.com/user-attachments/assets/eb6e12be-8dc3-4375-a00b-69ee220fce25)
+```
+sns.histplot(data=tit,x="Pclass",hue="Survived",kde=True)
+```
+![image](https://github.com/user-attachments/assets/6411df41-8b23-4ce5-ba97-160d90cc6099)
+```
+import matplotlib.pyplot as plt
+np.random.seed(0)
+marks=np.random.normal(loc=70,scale=10,size=100)
+marks
+```
+![image](https://github.com/user-attachments/assets/557baafa-c44d-46ab-b03d-0e01c5db5220)
+```
+sns.histplot(data=marks,bins=10,kde=True,stat='count',cumulative=False,multiple='stack',element='bars',palette='Set1',shrink=0.7)
+plt.xlabel('Marks')
+plt.ylabel('Density')
+plt.title('Histogram of Student Marks')
+```
+![image](https://github.com/user-attachments/assets/cc753817-cd75-4cf9-9409-3dce7023c06f)
+```
+tips=sns.load_dataset('tips')
+sns.boxplot(x=tips['day'],y=tips['total_bill'],hue=tips['sex'])
+```
+![image](https://github.com/user-attachments/assets/b6550aa1-ea2c-4978-ae0e-cff9920d6325)
+```
+sns.boxplot(x="day",y="total_bill",hue="smoker",data=tips,linewidth=2,width=0.6,boxprops={"facecolor":"lightblue","edgecolor":"darkblue"},
+            whiskerprops={"color":"black","linestyle":"--","linewidth":1.5},capprops={"color":"black","linestyle":"--","linewidth":1.5})
+```
+![image](https://github.com/user-attachments/assets/206df3e2-54af-4abd-b2e5-a31311276f92)
+```
+sns.boxplot(x='Pclass',y='Age',data=tit,palette='rainbow')
+plt.title("Age by Passenger Class,Titanic")
+```
+![image](https://github.com/user-attachments/assets/81ddc5a1-6823-479b-b360-fc21fc88eaa5)
+```
+sns.violinplot(x="day",y="total_bill",hue="smoker",data=tips,linewidth=2,width=0.6,palette="Set3",inner="quartile")
+plt.xlabel("Day of the week")
+plt.ylabel("Total Bill")
+plt.title("Violin Plot of Total Bill by Day and Smoker Status")
+```
+![image](https://github.com/user-attachments/assets/ab7e35ac-a698-4216-a3bb-dbff277f49bb)
+```
+import seaborn as sns
+sns.set(style='whitegrid')
+tip=sns.load_dataset('tips')
+sns.violinplot(x='day',y='tip',data=tip)
+```
+![image](https://github.com/user-attachments/assets/57d0dbbd-da57-48ba-a7fe-7e548ab2b107)
+```
+sns.set(style='whitegrid')
+tip=sns.load_dataset('tips')
+sns.violinplot(x=tip["total_bill"])
+```
+![image](https://github.com/user-attachments/assets/48df3249-f2bc-4f44-8e33-7ed92a07dc8f)
+```
+sns.set(style='whitegrid')
+tip=sns.load_dataset('tips')
+sns.violinplot(x="tip",y="day",data=tip)
+```
+![image](https://github.com/user-attachments/assets/88ed24c3-72ab-41da-bc86-bc6cbb5424ab)
+```
+sns.kdeplot(data=tips,x='total_bill',hue='time',multiple='fill',linewidth=3,palette='Set3',alpha=0.8)
+```
+![image](https://github.com/user-attachments/assets/db1d9b73-a36f-4782-bbc4-c242755e029a)
+```
+sns.kdeplot(data=tips,x='total_bill',hue='time',multiple='layer',linewidth=3,palette='Set2',alpha=0.8)
+```
+![image](https://github.com/user-attachments/assets/ef326aa4-2bcc-4ab9-b274-b1855378c6cf)
+```
+sns.kdeplot(data=tips,x='total_bill',hue='time',multiple='stack',linewidth=3,palette='Set2',alpha=0.8)
+```
+![image](https://github.com/user-attachments/assets/3ff8d8d7-8b00-4330-9ce5-d1a7cb4aad7e)
+```
+data=np.random.randint(low=1,high=100,size=(10,10))
+print("The data to be plotted:\n")
+print(data)
+```
+![image](https://github.com/user-attachments/assets/1fbe9442-4177-4a2f-84bd-ffd61ec0d776)
+```
+hm=sns.heatmap(data=data)
+```
+![image](https://github.com/user-attachments/assets/d50fead1-94c9-42dd-8af8-544edc2673d5)
+```
+tips=sns.load_dataset('tips')
+numeric_cols=tips.select_dtypes(include=np.number).columns
+corr=tips[numeric_cols].corr()
+sns.heatmap(corr,annot=True,cmap="plasma",linewidth=0.5)
+```
+![image](https://github.com/user-attachments/assets/3ce516bc-0d85-405f-b09e-a3709bff6ab2)
 
 # Result:
-Thus data Visualization using seaborn python library for the given datas is performed.
+ Data Visualization using seaborn python library for the given datas has been performed successfully.
